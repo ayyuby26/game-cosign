@@ -28,7 +28,7 @@ class DraggableSheet extends StatelessWidget {
                 minChildSize: .0,
                 builder: (_, ctrl) => DraggableContent(_widgetKey, ctrl),
                 initialChildSize: .0,
-                maxChildSize: .7,
+                maxChildSize: state.draggableheight,
               ),
           ],
         );
@@ -46,9 +46,7 @@ class DraggableSheet extends StatelessWidget {
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
-      Future.delayed(Duration(milliseconds: 200), () {
-        context.read<HomeBloc>().add(HomeUpdateDraggableHeight(size));
-      });
+      context.read<HomeBloc>().add(HomeUpdateDraggableHeight(size));
     });
   }
 }
