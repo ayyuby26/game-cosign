@@ -15,3 +15,6 @@
 
 ## video
 https://youtu.be/gnYKI3ApyNk
+
+## apk
+https://github.com/ayyuby26/game-cosign/raw/master/app-release.apk
