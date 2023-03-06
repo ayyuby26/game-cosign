@@ -21,6 +21,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeShowDraggableEvent>(_showDraggable);
     on<HomeReset>(_reset);
     on<HomeChangeSearchType>(_changeSearchType);
+    on<HomeUpdateDraggableHeight>(_updateDraggableHeight);
   }
 
   var status = RequestState.initial;
@@ -105,5 +106,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   _changeSearchType(HomeChangeSearchType event, Emitter<HomeState> emit) {
     final currentState = state;
     emit(currentState.copyWith(searchType: event.searchType));
+  }
+
+  _updateDraggableHeight(
+      HomeUpdateDraggableHeight event, Emitter<HomeState> emit) {
+    final currentState = state;
+    emit(currentState.copyWith(draggableheight: event.draggableheight));
   }
 }

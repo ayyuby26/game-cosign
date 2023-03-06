@@ -8,8 +8,10 @@ class HomeState extends Equatable {
   final bool update;
   final bool isShowDraggable;
   final SearchType searchType;
+  final double draggableheight;
 
   const HomeState({
+    this.draggableheight = .7,
     this.searchType = SearchType.hospital,
     this.isShowDraggable = false,
     this.update = false,
@@ -37,6 +39,7 @@ class HomeState extends Equatable {
         update,
         isShowDraggable,
         searchType,
+        draggableheight,
       ];
 
   HomeState copyWith({
@@ -49,6 +52,7 @@ class HomeState extends Equatable {
     bool? isShowDraggable,
     bool? isSearchResto,
     SearchType? searchType,
+    double? draggableheight,
   }) {
     return HomeState(
       position: position ?? this.position,
@@ -58,6 +62,7 @@ class HomeState extends Equatable {
       update: update ?? this.update,
       isShowDraggable: isShowDraggable ?? this.isShowDraggable,
       searchType: searchType ?? this.searchType,
+      draggableheight: draggableheight ?? this.draggableheight,
     );
   }
 }
