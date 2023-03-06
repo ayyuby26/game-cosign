@@ -61,3 +61,11 @@ class HomeChangeSearchType extends HomeEvent {
   @override
   List<Object> get props => [isSearchShow, searchType];
 }
+
+class HomeUpdateDraggableHeight extends HomeEvent {
+  final double draggableheight;
+
+  const HomeUpdateDraggableHeight(this.draggableheight);
+  @override
+  List<Object> get props => [isSearchShow, draggableheight];
+}

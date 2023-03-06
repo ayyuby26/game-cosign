@@ -28,7 +28,7 @@ class DraggableSheet extends StatelessWidget {
                 minChildSize: .0,
                 builder: (_, ctrl) => DraggableContent(_widgetKey, ctrl),
                 initialChildSize: .0,
-                maxChildSize: .7,
+                maxChildSize: state.draggableheight,
               ),
           ],
         );
@@ -42,10 +42,11 @@ class DraggableSheet extends StatelessWidget {
       final box = _widgetKey.currentContext?.findRenderObject() as RenderBox;
       final size = draggableCtrl.pixelsToSize(box.size.height);
       draggableCtrl.animateTo(
-        size.isNaN ? .2 : size,
+        size,
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
+      context.read<HomeBloc>().add(HomeUpdateDraggableHeight(size));
     });
   }
 }
@@ -197,7 +198,7 @@ class DraggableContent extends StatelessWidget {
     ];
   }
 
- /// display stars based on rating
+  /// display stars based on rating
   Widget starBuilder(double rating) {
     final ratingInt = rating.toInt();
     final numComma = int.parse("$rating".split(".").last);
